@@ -30,4 +30,5 @@ I like that my Board is an immutable object.
 
 A board 8x4 with an initial human move of 3,3 seems to not return.  Recursion loop from hell?  
 I confirmed that Bart's java impl doesn't do this...so either I'm not waiting long enough for the snake to return
-or I've got another bug.
+or I've got another bug.  A very quick-and-dirty instrumentation and comparison with Bart's version shows that this Python
+impl is just way slower.
