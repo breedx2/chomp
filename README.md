@@ -25,6 +25,7 @@ I like that my Board is an immutable object.
 * The negamax result tuple feels klunky.
 * There are lost of cleanups to be done.
 * I'm probably not Pythonic enough.  I wish I was.
+* Probably other stuff.
 
 ## Odd strangeness:
 
