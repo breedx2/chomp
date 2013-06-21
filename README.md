@@ -18,7 +18,7 @@ You can specify an arbitrary board size on the commandline:
 
 ## What's good:
 
-I like that my Board is an object and isn't mutated.
+I like that my Board is an immutable object.
 
 ## What's bad:
 
