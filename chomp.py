@@ -29,7 +29,7 @@ class Board(object):
 		return len(self.rows)
 	def cell_at(self, x, y):
 		return self.rows[y][x]
-	def is_open(self, x, y):
+	def is_cell_open(self, x, y):
 		return self.rows[y][x] == 'o'
 
 def move(board, x, y):
@@ -38,7 +38,7 @@ def move(board, x, y):
 	if((x >= board.width()) or (y >= board.height())):
 		print("Out of bounds!")
 		return board
-	if(not board.is_open(x, y)):
+	if(not board.is_cell_open(x, y)):
 		print("You can't eat that! (already nommed)")
 		return board	
 	new_rows = []
@@ -56,7 +56,7 @@ def negamax(board, depth = 0):
 	cx = 0
 	for r in range(board.height()):
 		for c in range(board.width()):
-			if board.is_open(c, r) and (r + c > 0):
+			if board.is_cell_open(c, r) and (r + c > 0):
 				rx = r
 				cx = c
 				new_board = move(board, c, r)
