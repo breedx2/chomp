@@ -3,6 +3,9 @@
 import sys
 import re
 
+DEFAULT_WIDTH = 4
+DEFAULT_HEIGHT = 3
+
 class Board(object):
 	@staticmethod
 	def of_size(width, height):
@@ -27,7 +30,6 @@ class Board(object):
 	def cell_at(self, x, y):
 		return self.rows[y][x]
 	def is_open(self, x, y):
-		#print "ROW: " + "_".join(self.rows[y])
 		return self.rows[y][x] == 'o'
 
 def move(board, x, y):
@@ -88,7 +90,12 @@ def get_user_move(board):
 
 def main(argv):
 	print("Let's play chomp!")
-	board = Board.of_size(4, 3)
+	[width, height] = [DEFAULT_WIDTH, DEFAULT_HEIGHT]
+	if(len(argv) > 0):
+		width = int(argv[0])
+	if(len(argv) > 1):
+		height = int(argv[1])
+	board = Board.of_size(width, height)
 	while(True):
 		board.display()
 		[x,y] = get_user_move(board)
