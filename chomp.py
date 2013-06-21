@@ -60,12 +60,12 @@ def negamax(board, depth = 0):
 				rx = r
 				cx = c
 				new_board = move(board, c, r)
-				if(negamax(new_board, depth+1) is not None):
+				if(negamax(new_board, depth+1)[0]):
 					continue
 				if(depth == 0):
 					board = move(board, c, r)
 					print("I choose %d,%d (you're done for!)" %(c, r))
-				return board
+				return [True, board]
 	if(depth == 0):
 		board = move(board, cx, rx)
 		print("I choose %d,%d" %(cx,rx))
@@ -73,7 +73,7 @@ def negamax(board, depth = 0):
 			print "I have lost. :-("
 		else:
 			print "I am losing.  :-/"
-	return None
+	return [False, board]
 
 def get_user_move(board):
 	while(True):
@@ -104,7 +104,7 @@ def main(argv):
 			return
 		board = move(board, x, y)
 		board.display()
-		board = negamax(board)
+		board = negamax(board)[1]
 
 if __name__ == "__main__":
     main(sys.argv[1:])
