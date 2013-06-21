@@ -15,3 +15,17 @@ Moves are specified in the form: `x,y` and are zero-based.
 You can specify an arbitrary board size on the commandline:
 
 `./chomp.py 8 3` for example
+
+## What's good:
+
+I like that my Board is an object and isn't mutated.
+
+## What's bad:
+
+* The negamax result tuple feels klunky.
+* There are lost of cleanups to be done.
+* I'm probably not Pythonic enough.  I wish I was.
+
+## Odd strangeness:
+
+A board 8x4 with an initial human move of 3,3 seems to not return.  Recursion loop from hell?
