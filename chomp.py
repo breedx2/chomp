@@ -35,6 +35,8 @@ class Board(object):
 def move(board, x, y):
 	""" Take a board and a move position and return a new board.
 	"""
+	if([x,y] == [0,0]): # deathwish
+		return board
 	if((x >= board.width()) or (y >= board.height())):
 		print("Out of bounds!")
 		return board
@@ -71,6 +73,7 @@ def negamax(board, depth = 0):
 		print("I choose %d,%d" %(cx,rx))
 		if((rx == 0) and (cx == 0)):
 			print "I have lost. :-("
+			return None
 		else:
 			print "I am losing.  :-/"
 	return [False, board]
@@ -104,7 +107,10 @@ def main(argv):
 			return
 		board = move(board, x, y)
 		board.display()
-		board = negamax(board)[1]
+		das_komputer_mov = negamax(board)
+		if(das_komputer_mov == None):
+			break
+		board = das_komputer_mov[1]
 
 if __name__ == "__main__":
     main(sys.argv[1:])
